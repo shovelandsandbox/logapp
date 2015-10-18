@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var nodemon = require('gulp-nodemon');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var gutil = require('gulp-util');
@@ -95,6 +96,11 @@ gulp.task('sass', function() {
 // Watch
 gulp.task('serve', ['sass', 'webpack-dev-server'], function() {
     gulp.watch(['app/assets/scss/**/*.scss', 'app/assets/scss/*.scss'], ['sass']);
+    // nodemon({
+    //     script: './app/bootstrap.js'
+    // }).on('restart', function () {
+    //   // @TODO Applesauce: log event
+    // });
     // gulp.watch(['app/views/**/*.mustache', 'app/views/*.mustache']).on('change', reload);
 });
 //**
