@@ -4,26 +4,24 @@
   "description": "React project boilerplate with webpack and ES6",
   "main": "index.js",
   "scripts": {
-    "dev": "node server",
-    "clean": "rimraf dist",
-    "deploy": "npm run clean && NODE_ENV=production webpack -p --progress --config webpack.production.config.js",
-    "wdeploy": "npm run clean&&set NODE_ENV=production&&webpack -p --progress --config webpack.production.config.js"
+    "start": "nodemon bootstrap"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rhadow/react-webpack-boilerplate.git"
+    "url": "https://github.com/shovelandsandbox/logapp"
   },
   "keywords": [
-    "webpack",
-    "boiler",
-    "plate"
+    "logging"
   ],
-  "author": "Rhadow",
+  "authors": [
+      "Joey Figaro <joey@joeyfigaro.com>",
+      "Giuseppe Mancone <manconeg@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rhadow/react-webpack-boilerplate/issues"
+    "url": "https://github.com/shovelandsandbox/logapp/issues"
   },
-  "homepage": "https://github.com/Rhadow/react-webpack-boilerplate",
+  "homepage": "https://github.com/shovelandsandbox/logapp",
   "devDependencies": {
     "babel-core": "^5.8.25",
     "babel-loader": "^5.3.2",
