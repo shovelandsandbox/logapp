@@ -76,21 +76,9 @@ else if (cluster.isWorker) {
     app.use(flash());
 
     /*
-    =   Redis client events
+    =   Redis
     */
-    redis.on('connected', () => {
-        // @TODO Applesauce: log event
-        console.log('connected');
-    });
-
-    redis.set('framework', 'express', (error, reply) => {
-        if (!error) {
-            // @TODO Applesauce: log event
-        } else {
-            // @TODO Applesauce: log event
-            console.log(`Redis error: ${error}`);
-        }
-    });
+    require('./lib/redis.js')(redis);
 
     /*
     =   Postgres
