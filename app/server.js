@@ -78,32 +78,33 @@ else if (cluster.isWorker) {
     /*
     =   Redis
     */
-    require('./lib/redis.js')(redis);
+    require('./lib/redis')(redis);
 
     /*
     =   Postgres
     */
-    require('./lib/postgres.js')(Sequelize);
+    require('./lib/postgres')(Sequelize);
 
+    /*
+    =   Models
+    */
+    require('./models/user.js');
 
-
-    router.get('/', (request, response) => {
-        response.render('index', {
-            title: 'Buttlog'
-        });
-    });
-
+    /*
+    =   Routes
+    */
     router.get('/session/set/:value', (request, response) => {
-    	request.session.redSession = request.params.value;
-    	response.send('session written in Redis successfully');
+        request.session.redSession = request.params.value;
+        response.send('session written in Redis successfully');
     });
 
-    router.get('/session/get/', (request, response) => {
-    	if(request.session.redSession)
-    		response.send('the session value stored in Redis is: ' + request.session.redSess);
-    	else
-    		response.send("no session value stored in Redis ");
+    router.get('/session/get/ ', (request, response) => {
+        if(request.session.redSession)
+            response.send('the session value stored in Redis is: ' + request.session.redSess);
+        else
+            response.send("no session value stored in Redis ");
     });
+
 
     app.use('/', router);
 

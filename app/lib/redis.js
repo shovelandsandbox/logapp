@@ -4,15 +4,19 @@ module.exports = function(redis) {
     */
     redis.on('connected', () => {
         // @TODO Applesauce: log event
-        console.log('connected');
+        console.log('REDIS: Connected');
     });
 
-    redis.set('framework', 'express', (error, reply) => {
-        if (!error) {
-            // @TODO Applesauce: log event
-        } else {
-            // @TODO Applesauce: log event
-            console.log(`Redis error: ${error}`);
-        }
+    redis.on('ready', () => {
+        // @TODO Applesauce: log event
+    });
+
+    redis.on('idle', () => {
+        // @TODO Applesauce: log event
+    });
+
+    redis.on('error', (error) => {
+        // @TODO Applesauce: log event
+        console.log(`REDIS: ${error}`);
     });
 }

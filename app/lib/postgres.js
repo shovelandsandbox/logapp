@@ -1,6 +1,6 @@
 import config from 'config';
 
-module.exports = function(Sequelize) {
+module.exports = (Sequelize) => {
     return new Sequelize(config.get('database.name'), config.get('database.username'), config.get('database.password'), {
         host: config.get('database.host'),
         dialect: 'postgres',
